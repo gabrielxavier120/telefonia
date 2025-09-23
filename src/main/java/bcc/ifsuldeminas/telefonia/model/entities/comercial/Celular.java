@@ -1,6 +1,6 @@
-package bcc.ifsuldeminas.telefonia.model.entities.telefonia.comercial;
+package bcc.ifsuldeminas.telefonia.model.entities.comercial;
 
-import bcc.ifsuldeminas.telefonia.model.entities.telefonia.pessoal.Cliente;
+import bcc.ifsuldeminas.telefonia.model.entities.pessoal.Cliente;
 
 import java.util.List;
 

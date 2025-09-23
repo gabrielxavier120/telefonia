@@ -1,4 +1,4 @@
-package bcc.ifsuldeminas.telefonia.model.entities.telefonia.comercial;
+package bcc.ifsuldeminas.telefonia.model.entities.comercial;
 
 import java.util.Date;
 
