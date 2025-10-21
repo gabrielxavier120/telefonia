@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Plano {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String nome;
     private double valorPorMinuto;
