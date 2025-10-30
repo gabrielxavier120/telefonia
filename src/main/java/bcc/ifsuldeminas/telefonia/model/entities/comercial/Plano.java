@@ -12,4 +12,33 @@ public class Plano {
     private long id;
     private String nome;
     private double valorPorMinuto;
+
+    //Construtor padrão
+    public Plano(){
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getValorPorMinuto() {
+        return valorPorMinuto;
+    }
+
+    public void setValorPorMinuto(double valorPorMinuto) {
+        this.valorPorMinuto = valorPorMinuto;
+    }
 }
