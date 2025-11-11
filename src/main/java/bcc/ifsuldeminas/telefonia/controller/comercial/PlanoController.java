@@ -64,6 +64,8 @@ public class PlanoController {
     private Plano getById(long id){
         Optional<Plano> opt = planoRepository.findById(id);
 
-        if(opt.)
+        if(!opt.isEmpty()){
+            
+        }
     }
 }
