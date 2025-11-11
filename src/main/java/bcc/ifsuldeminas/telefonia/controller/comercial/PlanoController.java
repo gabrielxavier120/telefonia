@@ -2,10 +2,12 @@ package bcc.ifsuldeminas.telefonia.controller.comercial;
 
 import bcc.ifsuldeminas.telefonia.model.entities.comercial.Plano;
 import bcc.ifsuldeminas.telefonia.model.repositories.comercial.PlanoRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/plano")
@@ -24,11 +26,14 @@ public class PlanoController {
     }
 
     @GetMapping("/{id}")
-    public Plano get(@PathVariable Long id){
+    public ResponseEntity<Plano> get(@PathVariable Long id){
         //Buscando um plano pelo 'id' informado
-        Plano plano = planoRepository.getById(id);
+        Plano plano = getById(id);
+        if(plano == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         //A implementar: tratamento de erros
-        return plano;
+        return new ResponseEntity<Plano>(plano, HttpStatus.OK);
     }
 
     @GetMapping
@@ -53,5 +58,12 @@ public class PlanoController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
         planoRepository.deleteById(id);
+    }
+
+
+    private Plano getById(long id){
+        Optional<Plano> opt = planoRepository.findById(id);
+
+        if(opt.)
     }
 }
