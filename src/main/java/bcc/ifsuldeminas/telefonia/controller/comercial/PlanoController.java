@@ -24,48 +24,31 @@ public class PlanoController {
     @PostMapping
     public ResponseEntity<Plano> create(@RequestBody @Valid Plano plano) {
         planoService.create(plano);
-
         return new ResponseEntity<Plano>(plano, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Plano> get(@PathVariable Long id) {
-        try {
-            Plano plano = planoService.get(id);
-
-            return new ResponseEntity<>(plano, HttpStatus.OK);
-        } catch (PlanoNotFoundException pnfe) {
-            return new ResponseEntity(pnfe.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        Plano plano = planoService.get(id);
+        return new ResponseEntity<>(plano, HttpStatus.OK);
     }
 
     @GetMapping
     public List<Plano> list() {
         //Obtendo todos os planos cadastrados
         List<Plano> planos = planoService.get();
-
         return planos;
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Plano> update(@PathVariable Long id, @RequestBody @Valid Plano plano) {
-        try {
-            Plano planoAtualizado = planoService.update(id, plano);
-
-            return new ResponseEntity(planoAtualizado, HttpStatus.OK);
-        } catch (PlanoNotFoundException pnfe) {
-            return new ResponseEntity(pnfe.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        Plano planoAtualizado = planoService.update(id, plano);
+        return new ResponseEntity(planoAtualizado, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
-        try {
-            planoService.delete(id);
-
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
-        } catch (PlanoNotFoundException pnfe) {
-            return new ResponseEntity(pnfe.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        planoService.delete(id);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
