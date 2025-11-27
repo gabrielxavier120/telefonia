@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class PlanoResourceAdvice {
-    //metodo que trata exceções PlanoNotFoundException
+    //Metodo que trata exceções 'PlanoNotFoundException'
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(PlanoNotFoundException.class)

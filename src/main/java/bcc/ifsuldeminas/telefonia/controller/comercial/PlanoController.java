@@ -9,14 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/plano")
 public class PlanoController {
     private PlanoService planoService;
 
-    //Degando ao spring a instanciação
+    //Delegando ao spring a instanciação
     public PlanoController(PlanoService planoService) {
         this.planoService = planoService;
     }
