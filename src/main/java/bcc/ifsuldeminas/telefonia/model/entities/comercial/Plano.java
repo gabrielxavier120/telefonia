@@ -1,9 +1,7 @@
-package bcc.ifsuldeminas.telefonia.model.entities.comercial;
+package bcc.ifsuldeminas.Telefonia.model.entities.comercial;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import bcc.ifsuldeminas.Telefonia.model.entities.Operadora;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -11,8 +9,9 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 public class Plano {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    //null e´ diferente de "" (string vazia)
     @NotNull
     @NotBlank
     private String nome;
@@ -20,7 +19,10 @@ public class Plano {
     @DecimalMin(value="1.49")
     private double valorPorMinuto;
 
-    //Construtor padrão
+    @ManyToOne
+    private Operadora operadora;
+
+    //implementacao do construtor padrao e getters e setters
     public Plano(){
 
     }
@@ -47,5 +49,13 @@ public class Plano {
 
     public void setValorPorMinuto(double valorPorMinuto) {
         this.valorPorMinuto = valorPorMinuto;
+    }
+
+    public Operadora getOperadora(){
+        return operadora;
+    }
+
+    public void setOperadora(Operadora operadora){
+        this.operadora = operadora;
     }
 }

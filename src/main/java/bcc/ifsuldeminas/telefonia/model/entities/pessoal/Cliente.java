@@ -1,4 +1,4 @@
-package bcc.ifsuldeminas.telefonia.model.entities.pessoal;
+package bcc.ifsuldeminas.Telefonia.model.entities.pessoal;
 
 import jakarta.persistence.*;
 
@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @DiscriminatorColumn(name = "classe")
 public class Cliente {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String nome;
     private String endereco;

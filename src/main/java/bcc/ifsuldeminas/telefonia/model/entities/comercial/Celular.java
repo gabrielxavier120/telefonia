@@ -1,6 +1,6 @@
-package bcc.ifsuldeminas.telefonia.model.entities.comercial;
+package bcc.ifsuldeminas.Telefonia.model.entities.comercial;
 
-import bcc.ifsuldeminas.telefonia.model.entities.pessoal.Cliente;
+import bcc.ifsuldeminas.Telefonia.model.entities.pessoal.Cliente;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "classe")
 public class Celular {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long numero;
     @ManyToOne

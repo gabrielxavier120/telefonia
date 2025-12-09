@@ -1,10 +1,10 @@
-package bcc.ifsuldeminas.telefonia.model.entities.comercial;
+package bcc.ifsuldeminas.Telefonia.model.entities.comercial;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue(value = "CelularPosPago")
-public class CelularPosPago extends Celular {
+public class CelularPosPago extends Celular{
     private int diaDeVencimento;
 }

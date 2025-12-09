@@ -1,10 +1,10 @@
-package bcc.ifsuldeminas.telefonia.model.entities.pessoal;
+package bcc.ifsuldeminas.Telefonia.model.entities.pessoal;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue(value = "ClientePessoaFisica")
-public class ClientePessoaFisica extends Cliente {
+public class ClientePessoaFisica extends Cliente{
     private String cpf;
 }

@@ -1,4 +1,4 @@
-package bcc.ifsuldeminas.telefonia.model.entities.pessoal;
+package bcc.ifsuldeminas.Telefonia.model.entities.pessoal;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;

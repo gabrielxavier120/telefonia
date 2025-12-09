@@ -1,8 +1,7 @@
-package bcc.ifsuldeminas.telefonia.controller.comercial;
+package bcc.ifsuldeminas.Telefonia.controller.comercial;
 
-import bcc.ifsuldeminas.telefonia.exceptions.comercial.PlanoNotFoundException;
-import bcc.ifsuldeminas.telefonia.model.entities.comercial.Plano;
-import bcc.ifsuldeminas.telefonia.model.services.comercial.PlanoService;
+import bcc.ifsuldeminas.Telefonia.model.entities.comercial.Plano;
+import bcc.ifsuldeminas.Telefonia.model.services.comercial.PlanoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,38 +14,38 @@ import java.util.List;
 public class PlanoController {
     private PlanoService planoService;
 
-    //Delegando ao spring a instanciação
-    public PlanoController(PlanoService planoService) {
+    //delegando ao Spring a instanciacao de planoRepository
+    public PlanoController(PlanoService planoService){
         this.planoService = planoService;
     }
 
     @PostMapping
-    public ResponseEntity<Plano> create(@RequestBody @Valid Plano plano) {
-        planoService.create(plano);
+    public ResponseEntity create(@RequestBody @Valid Plano plano){
+        plano = planoService.create(plano);
         return new ResponseEntity<Plano>(plano, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Plano> get(@PathVariable Long id) {
+    public ResponseEntity get(@PathVariable Long id){
         Plano plano = planoService.get(id);
-        return new ResponseEntity<>(plano, HttpStatus.OK);
+        return new ResponseEntity(plano, HttpStatus.OK);
     }
 
     @GetMapping
-    public List<Plano> list() {
-        //Obtendo todos os planos cadastrados
+    public List<Plano> list(){
+        //obtendo todos os planos cadastrados
         List<Plano> planos = planoService.get();
         return planos;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Plano> update(@PathVariable Long id, @RequestBody @Valid Plano plano) {
+    public ResponseEntity update(@PathVariable Long id, @RequestBody @Valid Plano plano){
         Plano planoAtualizado = planoService.update(id, plano);
         return new ResponseEntity(planoAtualizado, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id){
         planoService.delete(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
